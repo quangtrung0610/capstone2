@@ -1,0 +1,68 @@
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.site-layout .site-layout-background {
+  background: #fff;
+
+  .user-management {
+    float: right;
+    border: none;
+    margin-right: 15px;
+    display: inline;
+    .avatar {
+      display: fixed;
+      background-color: #87d068;
+    }
+  }
+  .search-bar {
+    width: 40%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+[data-theme="dark"] .site-layout .site-layout-background {
+  background: #141414;
+}
+.site-layout-background-teamwork {
+  background: #fff;
+}
+.schedule {
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+}
+
+.sider {
+  color: #fff;
+}
+
+.subMenu {
+  color: #a6adac;
+}
+
+.profile {
+  margin-top: 100px;
+}
+
+.ant-menu-inline.ant-menu-root .ant-menu-item > .ant-menu-title-content,
+.ant-menu-inline.ant-menu-root
+  .ant-menu-submenu-title
+  > .ant-menu-title-content {
+  color: #a6adac;
+}
+.site-card-wrapper {
+  border: 1px solid #ccc;
+  // height: fit-content;
+}
+
+.calendar--home {
+  float: right;
+  width: 400px;
+  border: 2px solid #f0f0f0;
+  border-radius: 30px;
+  padding: 10px;
+}
+.site-card-border-less-wrapper {
+  padding: 30px;
+  background: #ececec;
+}

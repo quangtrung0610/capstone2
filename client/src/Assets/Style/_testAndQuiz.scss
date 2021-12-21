@@ -1,0 +1,113 @@
+.testandquizzes {
+  .rule {
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 32px 0 rgba(10, 14, 29, 0.02),
+        0 8px 64px 0 rgba(10, 14, 29, 0.08);
+      border-radius: 3px;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .card {
+    margin-bottom: 2rem;
+    .card-title-background {
+      color: rgb(255, 255, 255);
+      border-radius: 30px 30px 5px 5px;
+      background-color: #002140;
+
+      .card-title {
+        font-size: 20px;
+        margin-left: 30px;
+      }
+    }
+
+    .list-group {
+      .list-group-item {
+        font-size: 16px;
+        display: flex;
+        margin-bottom: 0.005rem;
+        border: none;
+        border-bottom: 1px solid #ececec;
+        &:last-child {
+          border-bottom: none;
+        }
+        .number {
+          margin-right: 1rem;
+          padding: 0.3rem;
+          padding-left: 0.7rem;
+          background: rgb(163, 163, 163);
+          border-radius: 50%;
+          width: 2rem;
+          height: 2rem;
+        }
+        cursor: pointer;
+      }
+    }
+    box-shadow: 0 4px 32px 0 rgba(10, 14, 29, 0.02),
+      0 8px 64px 0 rgba(10, 14, 29, 0.08);
+    border-radius: 3px;
+    border: none;
+  }
+}
+.modal {
+  .modal-header {
+    border: none;
+    display: flex;
+    justify-content: center;
+  }
+  .modal-body {
+    padding: 3rem;
+    padding-top: 0;
+    .numbers-container {
+      display: flex;
+      justify-content: center;
+      .numbers {
+        margin-top: 1rem;
+        box-shadow: 0 4px 32px 0 rgba(10, 14, 29, 0.02),
+          0 8px 64px 0 rgba(10, 14, 29, 0.08);
+        border-radius: 1rem;
+        font-size: 2em;
+        width: 10rem;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-around;
+        .number {
+          &.correct {
+            color: #38bb38;
+          }
+          &.incorrect {
+            color: #e24646;
+          }
+        }
+      }
+    }
+  }
+  .modal-footer {
+    border: none;
+    button {
+      width: 100%;
+      background: white;
+      border: none;
+      height: 4rem;
+      font-size: 1.2em;
+      color: black;
+      box-shadow: 0 4px 32px 0 rgba(10, 14, 29, 0.02),
+        0 8px 64px 0 rgba(10, 14, 29, 0.08);
+      &:hover {
+        background: rgb(219, 219, 219);
+
+        color: black;
+      }
+    }
+  }
+}
