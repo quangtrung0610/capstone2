@@ -1,16 +1,15 @@
 import React from "react";
+import Profile from "../Component/profile/profileTeacher";
 
-import Schedule from "../Component/schedule/schedule";
-
-const SchedulePage = () => {
+const ProfileTeacherPage = () => {
   return (
     <div
       className="site-layout-background"
       style={{ padding: 24, minHeight: "100%", borderRadius: "30px" }}
     >
-      <Schedule />
+      <Profile />
     </div>
   );
 };
 
-export default SchedulePage;
+export default ProfileTeacherPage;

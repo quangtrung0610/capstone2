@@ -38,21 +38,25 @@ const Login = () => {
   const [password, setPassword] = React.useState("");
   const [role, setRole] = React.useState([]);
 
-  const handleRole = () => {
-    Axios.post("http://localhost:1337/login", {
+  const requestLogin = () => {
+    const data = {
       username: username,
       password: password,
       role: role,
-    }).then((response) => {
-      if (response.data.result) {
-        setRole(response.data.result);
+    };
+    Axios.post("http://localhost:1337/login", data, {
+      withCredentials: true,
+    }).then((res) => {
+      if (res.data.result) {
+        setRole(res.data.result);
+        console.log(role);
       }
     });
   };
   useEffect(() => {
-    requestLogin();
+    handleRole();
   }, [role]);
-  const requestLogin = () => {
+  const handleRole = () => {
     if (!role) {
       alert("wrong username or password!!");
     }
@@ -61,6 +65,7 @@ const Login = () => {
         return val.role;
       }) == "student"
     ) {
+      console.log();
       history.push("/student-workspace");
     } else if (
       role.map((val) => {
@@ -136,16 +141,16 @@ const Login = () => {
                 <Checkbox className="login__form--cbk">Remember me</Checkbox>
               </Form.Item>
 
-              <a href="#" className="login__form--forgot">
+              <Link to="/forget-password" className="login__form--forgot">
                 Forgot password ?
-              </a>
+              </Link>
             </Form.Item>
 
             <Form.Item>
               <Button
                 type="primary"
                 className="login__form--btn"
-                onClick={handleRole}
+                onClick={requestLogin}
               >
                 Sign in
               </Button>

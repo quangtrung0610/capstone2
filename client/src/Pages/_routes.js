@@ -1,27 +1,32 @@
 import React from "react";
 import Login from "../Component/Login/Login";
 import Register from "../Component/Login/Register";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
-
+import { Route, Switch } from "react-router-dom";
+import Forgot from "../Component/Login/forgot";
 import Home from "../Component/Home/Index";
-import Header_About from "../Component/AbouUs/Header_About";
-import Footer_AboutUs from "../Component/AbouUs/Footer_AboutUs";
+import AboutUs from "../Component/AbouUs/AboutUs";
+import NotFound from "../Component/Layout/NotFound/NotFound";
 
 const Body = () => {
   return (
     <Switch>
-      <Route path="/sign-in">
+      <Route exact path="/sign-in">
         <Login />
       </Route>
-      <Route path="/sign-up">
+      <Route exact path="/sign-up">
         <Register />
       </Route>
-      <Route path="/home">
+      <Route exact path="/forget-password">
+        <Forgot />
+      </Route>
+      <Route exact path="/home">
         <Home />
       </Route>
-      <Route path="/about-us">
-        <Header_About />
-        <Footer_AboutUs />
+      <Route exact path="/about-us">
+        <AboutUs />
+      </Route>
+      <Route exact path="/">
+        <Home />
       </Route>
     </Switch>
   );

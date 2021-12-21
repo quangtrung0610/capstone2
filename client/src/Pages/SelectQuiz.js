@@ -1,16 +1,15 @@
 import React from "react";
+import SelectQuiz from "../Component/testAndQuizzes/selectQuiz";
 
-import Schedule from "../Component/schedule/schedule";
-
-const SchedulePage = () => {
+const SelectQuizPage = () => {
   return (
     <div
       className="site-layout-background"
       style={{ padding: 24, minHeight: "100%", borderRadius: "30px" }}
     >
-      <Schedule />
+      <SelectQuiz />
     </div>
   );
 };
 
-export default SchedulePage;
+export default SelectQuizPage;

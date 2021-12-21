@@ -1,14 +1,15 @@
 import React from "react";
 
-import Sidebar from "../Component/Layout/Sidebar/Sidebar";
-import TestandQuizzes from "../Component/Layout/testAndQuizzes/testAndQuizzes";
+import TestandQuizzes from "../Component/testAndQuizzes/testAndQuizzes";
 
 const TestandQuizzesPage = () => {
   return (
-    <>
-      <Sidebar />
+    <div
+      className="site-layout-background"
+      style={{ padding: 24, minHeight: "100%", borderRadius: "30px" }}
+    >
       <TestandQuizzes />
-    </>
+    </div>
   );
 };
 

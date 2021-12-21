@@ -1,28 +1,62 @@
 import { Link } from "react-router-dom";
 import imgReg from "../../Assets/Login/register_1.svg";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { Form, Input, Button } from "antd";
-import UserOutlined from "@ant-design/icons";
+
+import { Form, Input, Button, Select, Typography, Checkbox } from "antd";
+const { Text } = Typography;
+const { Option } = Select;
 
 const Login = () => {
-  const [usernameReg, setUsernameReg] = React.useState("");
-  const [firstNameReg, setFristNameReg] = React.useState("");
-  const [lastNameReg, setLastNameReg] = React.useState("");
-  const [emailReg, setEmailReg] = React.useState("");
-  const [passwordReg, setPasswordReg] = React.useState("");
+  const [usernameReg, setUsernameReg] = useState("");
+  const [firstNameReg, setFristNameReg] = useState("");
+  const [lastNameReg, setLastNameReg] = useState("");
+  const [classesReg, setClassesReg] = useState("");
+  const [emailReg, setEmailReg] = useState("");
+  const [passwordReg, setPasswordReg] = useState("");
+  const [confirmPasswordReg, setConfirmPasswordReg] = useState("");
+  const [genderReg, setgenderReg] = useState("");
+  const [handleMessage, sethandleMessage] = useState("");
+  const [getClasses, setGetClasses] = useState([]);
+  const [getGender, setGetGender] = useState([]);
 
-  const register = () => {
-    Axios.post("http://localhost:1337/register", {
+  const handleSubmit = () => {
+    const data = {
       username: usernameReg,
       first_name: firstNameReg,
       last_name: lastNameReg,
+      gender_id: genderReg,
       email: emailReg,
+      class_id: classesReg,
       password: passwordReg,
-    }).then((response) => {
-      console.log(response);
-    });
+      password_confirm: confirmPasswordReg,
+    };
+    //console.log(classes);
+    Axios.post("http://localhost:1337/register", data)
+      .then((res) => {
+        console.log(res);
+        if (res.data.message) {
+          sethandleMessage(res.data.message);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+  useEffect(() => {
+    Axios.get("http://localhost:1337/api/get/class").then((res) => {
+      console.log(res.data.result);
+      if (res.data.result) {
+        setGetClasses(res.data.result);
+      }
+    });
+    Axios.get("http://localhost:1337/api/get/gender").then((res) => {
+      console.log(res.data.result);
+      if (res.data.result) {
+        setGetGender(res.data.result);
+      }
+    });
+  }, []);
 
   return (
     <div className="register">
@@ -87,6 +121,48 @@ const Login = () => {
             </Form.Item>
 
             <Form.Item
+              label="Classes:"
+              name="Classes"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your Class!",
+                },
+              ]}
+            >
+              <Select
+                style={{ width: "100%" }}
+                onChange={(e) => {
+                  setClassesReg(e);
+                }}
+              >
+                {getClasses.map((e) => (
+                  <Option key={e.class_id}>{e.class_name}</Option>
+                ))}
+              </Select>
+            </Form.Item>
+            <Form.Item
+              label="Gender:"
+              name="Gender"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your Class!",
+                },
+              ]}
+            >
+              <Select
+                style={{ width: "100%" }}
+                onChange={(e) => {
+                  setgenderReg(e);
+                }}
+              >
+                {getGender.map((e) => (
+                  <Option key={e.gender_id}>{e.gender_name}</Option>
+                ))}
+              </Select>
+            </Form.Item>
+            <Form.Item
               label="Email address:"
               name="Email address"
               rules={[
@@ -124,11 +200,32 @@ const Login = () => {
                 }}
               />
             </Form.Item>
-
+            <Form.Item
+              label="Confirm Password:"
+              name="Confirm Password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your Confirm Password!",
+                },
+              ]}
+            >
+              <Input
+                type="password"
+                className="register__form--ipn"
+                placeholder="Enter your Password..."
+                onChange={(e) => {
+                  setConfirmPasswordReg(e.target.value);
+                }}
+              />
+            </Form.Item>
+            <Form.Item>
+              <Text type="danger">{handleMessage}</Text>
+            </Form.Item>
             <Button
               className="register__form--btn"
               type="danger"
-              onClick={register}
+              onClick={handleSubmit}
             >
               Sign Up
             </Button>
