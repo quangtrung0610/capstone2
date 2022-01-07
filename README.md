@@ -5,7 +5,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Environmental installation
 To the project works you need to install:
   Vscode: https://code.visualstudio.com/
+  
   Nodejs: https://nodejs.org/dist/v16.13.1/node-v16.13.1-x64.msi
+  
   Mysql workbech, mysql server: https://dev.mysql.com/downloads/installer/
   ```text  
     1. install MySQL server, MySQL Workbench, and MySQL shell.  
