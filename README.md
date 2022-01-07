@@ -17,19 +17,19 @@ To the project works you need to install:
   You can also view the install mysql at: https://www.simplilearn.com/tutorials/mysql-tutorial/mysql-workbench-installation
   
 ## Project installation
-Setup New Connection mysql:
+###Setup New Connection mysql:
 
 ```text
 Hostname: 127.0.0.1 Port: 3306
 Username: root
 Pasword: 123456
 ```
-Export database into mysql workbech:
+###Export database into mysql workbech:
 ```text
 File> Open SQL Script> [Select cte_db.sql from database folder]
 Execute file
 ```
-Install node_modules for client
+###Install node_modules for client
 ```bash
 cd client
 npm install 
