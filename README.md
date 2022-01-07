@@ -39,8 +39,7 @@ npm install
 ```
 
 
-
-## Available Scripts
+## Run Project
 
 ### `npm start`
 
